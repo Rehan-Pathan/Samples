@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form Validation</title>
+	<style>
+		form {
+            display:block;
+            padding-left: 30%;
+            flex-direction: column;
+            justify-content: center;
+			align-items:center;
+            padding-top: 5%;
+           
+            
+
+		}
+  
+		input[type="text"], input[type="email"], input[type="password"],input[type="url"] {
+			margin: 10px;
+			padding: 10px;
+			width: 300px;
+			border: none;
+			border-radius: 5px;
+			box-shadow: 0px 0px 5px grey;
+
+		}
+		input[type="submit"] {
+			margin: auto;
+			padding: 10px;
+			width: 100px;
+			background-color: #4CAF50;
+			color: white;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+             
+
+             
+
+            
+		}
+        .form-row{
+            padding: 5px;
+            
+        }
+
+		input[type="submit"]:hover {
+			background-color: #3e8e41;
+		}
+		.error {
+			color: red;
+			margin-bottom: 10px;
+		}
+             
+
+        
+       label {
+  display: inline-block;
+  width: 100px; /* Set fixed width for the label */
+  text-align: right; /* Align label text to the right */
+  margin-right: 10px; /* Add some spacing between the label and input */
+}
+	</style>
+</head>
+<body>
+	<form>
+  <div class="form-row">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required onblur="myFunction2()" onfocus="focus2()">
+    <label id="n" style="width: max-content;"> </label></div>
+
+
+
+        <div class="form-row">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required onblur="myFunction()" onfocus="focusE()">
+            <label id="e" style="width: max-content;"> </label></div>
+  
+  
+  <div class="form-row">
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required onblur="myFunction3()" onfocus="focus3()">
+    <label id="p" style="width: max-content;"> </label></div>
+
+  </div>
+  <div class="form-row">
+    <label for="website">Website</label>
+    <input type="url" id="website" name="website" required onblur="myFunction4()" onfocus="focus4()">
+    <label id="w" style="width: max-content;"> </label></div>
+
+ 
+
+  
+  <div class="form-row">
+    <label for="msg">Message</label>
+    <input type="text" id="msg" name="msg" required  style="height: 100px;"onblur="myFunction5()" onfocus="focus5()">
+    <label id="m" style="width: max-content;"> </label></div>
+        
+   <div class="form-row" style="padding-left: 200px;" >
+    <input type="submit"  id="submitButton" value="Submit">
+
+   </div>
+
+ <div  class="form-row" id="final_sub" style="width: max-content; padding-top: 20px; padding-left: 200px;"></div>
+
+  
+
+</form>
+
+
+	<script>
+
+		document.getElementById("submitButton").addEventListener("click", finalFunction);
+
+        function finalFunction()
+        {
+            var email=document.getElementById("email").value;
+            var name=document.getElementById("name").value;
+            var password=document.getElementById("password").value;
+            var website=document.getElementById("website").value;
+            var msg=document.getElementById("msg").value;
+            if(email==="" || name=="" || password=="" || website=="" || msg=="")
+            {
+                document.getElementById("final_sub").innerHTML="Fill all the fields";
+            }
+            else{
+                alert("Successfully submitted");
+
+            }
+
+
+            
+        }
+
+            function myFunction() {
+            var email=document.getElementById("email").value;
+            // your code here
+            if(email==="")
+            {
+            document.getElementById("e").innerHTML="A valid email address is required";
+                
+            }
+           
+
+            }
+            function focusE() {
+           
+           document.getElementById("e").innerHTML="";
+               
+           
+       }
+           
+
+           
+            
+            function myFunction2() {
+            var name=document.getElementById("name").value;
+            // your code here
+            if(name==="")
+            {
+            document.getElementById("n").innerHTML="This field is required";
+                
+            }
+        }
+        function focus2() {
+           
+            document.getElementById("n").innerHTML="";
+                
+            
+        }
+
+            function myFunction3() {
+            var password=document.getElementById("password").value;
+            // your code here
+            if(password==="")
+            {
+            document.getElementById("p").innerHTML="This field is required";
+                
+            }
+        }
+        function focus3() {
+           
+            document.getElementById("p").innerHTML="";
+         
+        }
+            function myFunction4() {
+            var website=document.getElementById("website").value;
+            // your code here
+            if(website==="")
+            {
+            document.getElementById("w").innerHTML="A valid url is required";
+                
+            }
+        }
+        
+        function focus4() {
+            // your code here
+           
+            document.getElementById("w").innerHTML="";
+                
+           
+        }
+        function myFunction5() {
+            var msg=document.getElementById("msg").value;
+            // your code here
+            if(msg==="")
+            {
+            document.getElementById("m").innerHTML="This field is required";
+                
+            }
+        }
+        function focus5() {
+          
+            document.getElementById("m").innerHTML="";
+                
+           
+        }
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>
